@@ -1,14 +1,17 @@
-
+import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
-function App() {
-  return (
+
+function App(){
+  return(
     <div className="App">
-      <header className="App-header">
-        <div>
-          <h1>Encuentralo</h1>
-        </div>
-      </header>
+      <NavBar />
+      <div className="Greetings">
+        <ItemListContainer title={'Bienvenido!'}/>
+      </div>
     </div>
   );
 }
