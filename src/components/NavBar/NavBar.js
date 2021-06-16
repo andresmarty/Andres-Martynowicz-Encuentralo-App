@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import CartWidget from './'
+import CartWidget from '../CartWidget/CartWidget'
 
 const NavBar = () => (
     <>
@@ -15,6 +15,7 @@ const NavBar = () => (
                         <NavDropdown.Item href="#action/3.4">Pantalones</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
+                <CartWidget />
             </Navbar.Collapse>
         </Navbar>
     </>

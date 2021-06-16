@@ -1,10 +1,16 @@
 import React from 'react';
-import img from './CartWidget.png'
+import img from './car.png'
+import './CartWidget.css';
+import { Nav } from 'react-bootstrap';
 
 function CartWidget(props) {
     return (
         <div>
-            <img src={img} alt="Carrito de Compras" className="carrito"></img>
+            <Nav.Item>
+                <Nav.Link href="/home" className="mr-auto">
+                <img src={img} alt="Carrito de Compras" className="carrito"></img>
+                </Nav.Link>
+            </Nav.Item>
         </div>
     );
 };
