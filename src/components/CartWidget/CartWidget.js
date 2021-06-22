@@ -3,7 +3,7 @@ import img from './car.png'
 import './CartWidget.css';
 import { Nav } from 'react-bootstrap';
 
-function CartWidget(props) {
+function CartWidget() {
     return (
         <div>
             <Nav.Item>

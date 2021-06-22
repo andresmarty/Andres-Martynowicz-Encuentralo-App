@@ -1,6 +1,22 @@
-.ItemList {
-    display: flex;
+.item {
+    margin: 10px;
+    min-width: 300px;
+    min-height: 40vh;
     justify-content: center;
-    align-items: center;
-    height: 400px;
+}
+
+.imagen {
+    height: 100px;
+}
+
+.texto {
+    min-height: 10vh;
+    padding: 0;
+    margin: 0;
+}
+
+.contador {
+    padding: 0;
+    margin: 0;
+    justify-content: center;
 }

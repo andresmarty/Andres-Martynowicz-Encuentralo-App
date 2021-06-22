@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   height: 100vh;
+  background-color: rgb(255, 255, 255);
 }
 
 body {
@@ -8,6 +9,6 @@ body {
 }
 
 .Greetings {
-  height: 100%;
-  margin: auto;
+  max-height: 100%;
+  width: 100%;
 }
