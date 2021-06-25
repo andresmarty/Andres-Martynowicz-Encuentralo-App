@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import './ItemCount.css';
-import { itemData } from '../ItemData/ItemData'
 
 function ItemCount(props) {
     const [number, setNumber] = useState(1);

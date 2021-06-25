@@ -10,6 +10,7 @@ function CartWidget() {
                 <Nav.Link href="/home" className="mr-auto">
                 <img src={img} alt="Carrito de Compras" className="carrito"></img>
                 </Nav.Link>
+                
             </Nav.Item>
         </div>
     );
