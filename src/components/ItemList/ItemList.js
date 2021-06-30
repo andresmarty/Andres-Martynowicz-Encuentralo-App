@@ -6,8 +6,6 @@ function ItemList( {dataCategory} ) {
 
     const newCategoryListId = dataCategory
 
-    console.log(newCategoryListId)
-
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
@@ -17,6 +15,8 @@ function ItemList( {dataCategory} ) {
      const newCategoryList = items.filter(product => {
         return product.categoryId === newCategoryListId
     });
+
+    console.log(items)
 
     useEffect(() => {
         fetch(url)
@@ -32,6 +32,8 @@ function ItemList( {dataCategory} ) {
             }
             )
         }, [newCategoryListId])
+    
+    
 
     if (error) {
         return <div>Error: {error.message}</div>;

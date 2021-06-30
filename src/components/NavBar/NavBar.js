@@ -13,11 +13,7 @@ function NavBar() {
                 .then((res) => setProducto(res))
         },[]);
 
-        console.log(producto)
-
         const newArr = [...producto.reduce((map, obj) => map.set(obj.categoryId, obj), new Map()).values()];
-
-        console.log(newArr);
 
         return (
         <Navbar className="navbar" bg="dark" variant="dark">
@@ -30,7 +26,7 @@ function NavBar() {
             {newArr.map((item) => {
                 return(
                         
-                            <NavDropdown.Item id={item.category}><Link to={`/category/${item.categoryId}`}>{item.categoryName}</Link></NavDropdown.Item>
+                            <NavDropdown.Item key={item.id} id={item.category}><Link to={`/category/${item.categoryId}`}>{item.categoryName}</Link></NavDropdown.Item>
                         
                 )
             })}
