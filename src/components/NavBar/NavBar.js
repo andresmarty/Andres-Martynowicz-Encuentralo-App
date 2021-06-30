@@ -1,23 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
-const NavBar = () => (
+function NavBar() {
+
+        const [producto, setProducto] = useState([]) 
+
+        useEffect(() => {
+            fetch(`https://mocki.io/v1/628ed509-eed0-4438-a21d-71c4980d707e`)
+                .then(res => res.json())
+                .then((res) => setProducto(res))
+        },[]);
+
+        console.log(producto)
+
+        const newArr = [...producto.reduce((map, obj) => map.set(obj.categoryId, obj), new Map()).values()];
+
+        console.log(newArr);
+
+        return (
         <Navbar className="navbar" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Encuentralo</Navbar.Brand>
+            <Link to={`/`}>
+                <Navbar.Brand href="#home">Encuentralo</Navbar.Brand>
+            </Link>
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Zapatillas</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Remeras</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Buzos</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Pantalones</NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-
-                <CartWidget />
+            <Nav className="mr-auto">
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+            {newArr.map((item) => {
+                return(
+                        
+                            <NavDropdown.Item id={item.category}><Link to={`/category/${item.categoryId}`}>{item.categoryName}</Link></NavDropdown.Item>
+                        
+                )
+            })}
+            </NavDropdown>
+            </Nav>
+            <CartWidget />
             </Navbar.Collapse>
         </Navbar>
-)
+    )
+}
 
 export default NavBar;

@@ -1,22 +1,25 @@
 import React from 'react'
 import ItemCount from "../ItemCount/ItemCount"
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
-function item(props) {
+function item({ data }) {
     return (
         <div>
-            <Card>
+            <Card key={data.id}>
                 <div className="container justify-content-center">
-                    <img className="imagen" src={props.img} alt="producto"></img>
+                    <img className="imagen" src={data.pictureURL} alt="producto"></img>
                 </div>
                 <div className="container justify-content-center">
                 <Card.Body>
-                    <div className="container justify-content-center texto">
-                        <Card.Text>{props.name}</Card.Text>
-                        <Card.Text>{props.price}</Card.Text>
+                    <div className="container justify-content-center texto" key={data.id}>
+                        <Link to={`/detail/${data.id}`}>
+                            <Card.Text>{data.name}</Card.Text>
+                        </Link>
+                        <Card.Text>{data.price}</Card.Text>
                     </div>
                     <div className="container-fluid contador">
-                    <ItemCount stocks={props.stock}/>
+                    <ItemCount stocks={data.stock}/>
                     </div>
                 </Card.Body>
                 </div>
@@ -25,4 +28,4 @@ function item(props) {
     )
 }
 
-export default item
+export default item;

@@ -1,0 +1,14 @@
+.contenedorCard {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: auto;
+}
+
+.card-body {
+    height: 100%;
+}
+
+.itemCompra {
+    height:400px;
+}

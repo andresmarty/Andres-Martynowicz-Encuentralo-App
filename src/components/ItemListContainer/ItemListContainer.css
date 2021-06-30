@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+.contenedorList {
+    height: 100%;
+}
+
 .imagen {
     height: 100px;
 }
@@ -19,4 +23,18 @@
     padding: 0;
     margin: 0;
     justify-content: center;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.columna-derecha {
+    margin: 0;
+    padding: 0;
 }

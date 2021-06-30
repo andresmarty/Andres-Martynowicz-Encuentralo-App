@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import './ItemCount.css';
 
@@ -30,7 +30,7 @@ function ItemCount(props) {
                 <Button variant="outline-dark" onClick={handleIncrement}>+</Button>
             </div>
             <div className="container justify-content-center d-flex">
-                <Button variant="outline-dark" onClick={incrementCart}>Add To Cart</Button>
+                <Button variant="outline-dark" onClick={incrementCart}>Añadir al carrito</Button>
             </div>
         </div>
     );
