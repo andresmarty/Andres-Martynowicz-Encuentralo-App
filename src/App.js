@@ -5,7 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ItemDetailContainer from './Views/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import Footer from './components/Footer/Footer'
+//import Footer from './components/Footer/Footer'
 
 function App(){
       return(
@@ -17,7 +17,7 @@ function App(){
               <Route path='/category/:categoryId' exact component={ItemListContainer} />
               <Route path='/detail/:id' exact component={ItemDetailContainer} />
           </Switch>
-          <Footer />
+          
         </div>
               
       </Router>

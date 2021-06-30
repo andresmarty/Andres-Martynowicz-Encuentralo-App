@@ -12,7 +12,7 @@ function ItemList( {dataCategory} ) {
 
     const url = 'https://mocki.io/v1/628ed509-eed0-4438-a21d-71c4980d707e'
 
-     const newCategoryList = items.filter(product => {
+    const newCategoryList = items.filter(product => {
         return product.categoryId === newCategoryListId
     });
 
@@ -39,18 +39,22 @@ function ItemList( {dataCategory} ) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;
-    } else {
-
-    return(
-            <>
-            {newCategoryList.map((item) => {
-                return(
+    } else if (newCategoryListId) {
+        return newCategoryList.map((item) => {
+            return (
                 <div className="col-md-4 col-lg-3 d-flex container item">
-                        <Item data={ item }/>
+                    <Item data={ item }/>
                 </div>
-                )})}
-            </>
-        );
+            )
+        })
+    } else {
+        return items.map((item) => {
+            return(
+                <div className="col-md-4 col-lg-3 d-flex container item">
+                    <Item data={ item }/>
+                </div> 
+            )
+        })
     }
 };
 
