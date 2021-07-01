@@ -23,14 +23,14 @@ function ItemCount(props) {
     }
 
     return (
-        <div className="container justify-content-center w-100 item1">
-            <div className="counter w-100">
-                <Button variant="outline-dark" onClick={handleDecrement}>-</Button>
+        <div className="container-fluid justify-content-center w-100 item1">
+            <div className="container-fluid counter">
+                <Button className="decrementar" variant="dark" onClick={handleDecrement}>-</Button>
                 <Form.Label className="number">{number}</Form.Label>
-                <Button variant="outline-dark" onClick={handleIncrement}>+</Button>
+                <Button className="incrementar" variant="dark" onClick={handleIncrement}>+</Button>
             </div>
-            <div className="container justify-content-center d-flex">
-                <Button variant="outline-dark" onClick={incrementCart}>Añadir al carrito</Button>
+            <div className="container-fluid justify-content-center d-flex">
+                <Button className="button" variant="dark" onClick={incrementCart}>Añadir al carrito</Button>
             </div>
         </div>
     );

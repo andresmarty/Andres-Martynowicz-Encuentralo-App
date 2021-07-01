@@ -1,0 +1,22 @@
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.card {
+    width: 100%;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.imagen {
+    height: 100px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.texto {
+    min-height: 10vh;
+    padding: 0;
+    margin: 0;
+}

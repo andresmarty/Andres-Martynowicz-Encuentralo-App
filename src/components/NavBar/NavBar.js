@@ -8,7 +8,7 @@ function NavBar() {
         const [producto, setProducto] = useState([]) 
 
         useEffect(() => {
-            fetch(`https://mocki.io/v1/628ed509-eed0-4438-a21d-71c4980d707e`)
+            fetch(`https://mocki.io/v1/fd0e135c-9ad6-4f05-9c80-8538e12407f6`)
                 .then(res => res.json())
                 .then((res) => setProducto(res))
         },[]);
@@ -18,7 +18,7 @@ function NavBar() {
         return (
         <Navbar className="navbar" bg="dark" variant="dark">
             <Link to={`/`}>
-                <Navbar.Brand href="#home">Encuentralo</Navbar.Brand>
+                <Navbar.Brand href="#home">Encuéntralo</Navbar.Brand>
             </Link>
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -26,7 +26,7 @@ function NavBar() {
             {newArr.map((item) => {
                 return(
                         
-                            <NavDropdown.Item key={item.id} id={item.category}><Link to={`/category/${item.categoryId}`}>{item.categoryName}</Link></NavDropdown.Item>
+                            <NavDropdown.Item key={item.id} id={item.category}><Link style={{ textDecoration: 'none' }} className="link" to={`/category/${item.categoryId}`}>{item.categoryName}</Link></NavDropdown.Item>
                         
                 )
             })}

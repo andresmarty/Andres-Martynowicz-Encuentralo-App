@@ -10,7 +10,7 @@ function ItemList( {dataCategory} ) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
 
-    const url = 'https://mocki.io/v1/628ed509-eed0-4438-a21d-71c4980d707e'
+    const url = 'https://mocki.io/v1/fd0e135c-9ad6-4f05-9c80-8538e12407f6'
 
     const newCategoryList = items.filter(product => {
         return product.categoryId === newCategoryListId
@@ -42,7 +42,7 @@ function ItemList( {dataCategory} ) {
     } else if (newCategoryListId) {
         return newCategoryList.map((item) => {
             return (
-                <div className="col-md-4 col-lg-3 d-flex container item">
+                <div className="col-md-2 col-lg-2 d-flex container-fluid item">
                     <Item data={ item }/>
                 </div>
             )
@@ -50,7 +50,7 @@ function ItemList( {dataCategory} ) {
     } else {
         return items.map((item) => {
             return(
-                <div className="col-md-4 col-lg-3 d-flex container item">
+                <div className="col-md-2 col-lg-2 d-flex container-fluid item">
                     <Item data={ item }/>
                 </div> 
             )

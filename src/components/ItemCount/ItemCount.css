@@ -3,11 +3,23 @@
     margin-bottom: 10px;
 }
 
+.decrementar {
+    float: left;
+}
+
+.incrementar {
+    float: right;
+}
+
+.button {
+    width: 100%;
+}
+
 .item1 {
     margin: 0;
     padding: 0;
 }
 
 .number {
-    width: 40px;
+    width: max-content;
 }

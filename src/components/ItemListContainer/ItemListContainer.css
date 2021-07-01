@@ -1,40 +1,4 @@
-.item {
-    margin: 10px;
-    min-width: 300px;
-    min-height: 40vh;
-    justify-content: center;
-}
-
 .contenedorList {
-    height: 100%;
-}
-
-.imagen {
-    height: 100px;
-}
-
-.texto {
-    min-height: 10vh;
-    padding: 0;
-    margin: 0;
-}
-
-.contador {
-    padding: 0;
-    margin: 0;
-    justify-content: center;
-}
-
-.container-fluid {
-    padding: 0;
-}
-
-.row {
-    padding: 0;
-    margin: 0;
-}
-
-.columna-derecha {
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
+    width: 100%;
 }

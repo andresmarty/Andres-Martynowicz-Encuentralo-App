@@ -11,7 +11,7 @@ const ItemDetailContainer = ({ match }) => {
     const [product, setProduct] = useState([])
 
     useEffect(() => {
-        fetch(`https://mocki.io/v1/abc26028-c13a-447a-b2a4-f8f0b5ebc1ae`)
+        fetch(`https://mocki.io/v1/fd0e135c-9ad6-4f05-9c80-8538e12407f6`)
             .then(res => res.json())
             .then((res) => setProduct(res))
     },[itemId]);
@@ -27,16 +27,16 @@ const ItemDetailContainer = ({ match }) => {
                 {resultadoProducto.map((dataProducto) => {
                     return(
                         <>
-                        <div className="row w-100 h-75" key={ dataProducto.id }>
-                            <div className="col-lg-7 col-sm-7 h-100 d-flex justify-content-center align-items-center">
+                        <div className="row superior w-100 d-flex" key={ dataProducto.id }>
+                            <div className="col-lg-8 col-sm-8 justify-content-center d-flex align-intems-center">
                                 <div className="container-fluid containerImagen justify-content-center align-items-center d-flex">
                                     <img className="imagenDetail" src={ dataProducto.pictureURL } alt="producto"></img>
                                 </div>
                             </div>
-                            <div className="col-lg-5 col-sm-5 columna-derecha"><ItemDetail product={ dataProducto }/>
+                            <div className="col-lg-4 col-sm-4 justify-content-center d-flex align-intems-center"><ItemDetail product={ dataProducto }/>
                             </div>
                         </div>
-                        <div className="row h-25">
+                        <div className="row inferior d-flex">
                             <ItemDescription product={dataProducto} />
                         </div>
                         </>
