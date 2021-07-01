@@ -7,8 +7,8 @@ function ItemListContainer({ match }) {
     const categoryListId = match.params.categoryId;
     
     return(
-        <div className="container-fluid contenedorList d-flex justify-content-center">
-            <div className="row h-100 w-100 justify-content-center">
+        <div className="container-fluid h-100 d-flex justify-content-center">
+            <div className="row w-100 justify-content-center">
                 <ItemList dataCategory={categoryListId}/>
             </div>
         </div>
