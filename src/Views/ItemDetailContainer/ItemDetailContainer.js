@@ -11,7 +11,7 @@ const ItemDetailContainer = ({ match }) => {
     const [product, setProduct] = useState([])
 
     useEffect(() => {
-        fetch(`https://mocki.io/v1/fd0e135c-9ad6-4f05-9c80-8538e12407f6`)
+        fetch(`${process.env.REACT_APP_BASE_URL}`)
             .then(res => res.json())
             .then((res) => setProduct(res))
     },[itemId]);

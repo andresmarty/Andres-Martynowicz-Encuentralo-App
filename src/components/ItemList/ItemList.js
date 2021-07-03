@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './ItemList.css';
 import Item from '../Item/item';
+import { Link } from 'react-router-dom'
 
 function ItemList( {dataCategory} ) {
 
@@ -10,16 +11,12 @@ function ItemList( {dataCategory} ) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
 
-    const url = 'https://mocki.io/v1/fd0e135c-9ad6-4f05-9c80-8538e12407f6'
-
     const newCategoryList = items.filter(product => {
         return product.categoryId === newCategoryListId
     });
 
-    console.log(items)
-
     useEffect(() => {
-        fetch(url)
+        fetch(`${process.env.REACT_APP_BASE_URL}`)
             .then(res => res.json())
             .then(
             (result) => {
@@ -43,7 +40,9 @@ function ItemList( {dataCategory} ) {
         return newCategoryList.map((item) => {
             return (
                 <div className="col-md-2 col-lg-2 d-flex container-fluid item">
-                    <Item data={ item }/>
+                    <Link to={`/detail/${item.id}`} className="link" style={{ textDecoration: 'none' }}>
+                        <Item data={ item }/>
+                    </Link>
                 </div>
             )
         })
@@ -51,7 +50,9 @@ function ItemList( {dataCategory} ) {
         return items.map((item) => {
             return(
                 <div className="col-md-2 col-lg-2 d-flex container-fluid item">
-                    <Item data={ item }/>
+                    <Link to={`/detail/${item.id}`} className="link" style={{ textDecoration: 'none' }}>
+                        <Item data={ item }/>
+                    </Link>
                 </div> 
             )
         })

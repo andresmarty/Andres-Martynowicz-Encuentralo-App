@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
 import './item.css'
 
 function item({ data }) {
@@ -13,9 +12,9 @@ function item({ data }) {
                 <div className="container-fluid justify-content-center">
                 <Card.Body>
                     <div className="container justify-content-center texto" key={data.id}>
-                        <Link to={`/detail/${data.id}`} className="link" style={{ textDecoration: 'none' }}>
+                        
                             <Card.Text>{data.name}</Card.Text>
-                        </Link>
+
                         <Card.Text>Precio: {data.price}</Card.Text>
                     </div>
                     <div className="container-fluid contador">
