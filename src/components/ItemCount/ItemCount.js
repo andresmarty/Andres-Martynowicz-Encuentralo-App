@@ -3,14 +3,21 @@ import { Button, Form } from 'react-bootstrap';
 import './ItemCount.css';
 import { CartContext } from "../../context/CartContext";
 
-function ItemCount(props) {
+function ItemCount({ product }) {
 
     const [cart, setCart] = useContext(CartContext);
+
+    const addToCart = () => {
+        const Item = {item: product, quantity: number}
+        setCart(currentCart => [...currentCart, Item]);
+    }
+
+    console.log(product.stock)
 
     const [number, setNumber] = useState(1);
 
     const handleIncrement = () => {
-        if (number < props.stocks){
+        if (number < product.stock){
             setNumber(number + 1)
         }
     }
@@ -23,10 +30,6 @@ function ItemCount(props) {
 
     console.log(cart)
 
-    const addToCart = () => {
-        const Item = {id: props.id, quantity: {number}}
-        setCart(currentCart => [...currentCart, Item]);
-    }
 
     return (
         <div className="container-fluid justify-content-center w-100 item1">
