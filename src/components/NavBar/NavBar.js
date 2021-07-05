@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
+import './NavBar.css'
+import { ItemsContext } from '../../context/ItemContext'
+import { CartContext } from '../../context/CartContext'
 
 function NavBar() {
 
-        const [producto, setProducto] = useState([]) 
+        const [cart, setCart] = useContext(CartContext)
+        const quantity = Object.keys(cart).length
 
-        useEffect(() => {
-            fetch(`${process.env.REACT_APP_BASE_URL}`)
-                .then(res => res.json())
-                .then((res) => setProducto(res))
-        },[]);
+        console.log(quantity)
 
-        const newArr = [...producto.reduce((map, obj) => map.set(obj.categoryId, obj), new Map()).values()];
+        const [item, setItem] = useContext(ItemsContext)
+
+        const newArr = [...item.reduce((map, obj) => map.set(obj.categoryId, obj), new Map()).values()];
 
         return (
-        <Navbar className="navbar" bg="dark" variant="dark">
+        <Navbar className="navbar-custom" variant="dark">
             <Link to={`/`}>
                 <Navbar.Brand href="#home">Encuéntralo</Navbar.Brand>
             </Link>
@@ -32,7 +34,8 @@ function NavBar() {
             })}
             </NavDropdown>
             </Nav>
-            <CartWidget />
+                <span>Items In cart: { quantity }</span>
+                <CartWidget />
             </Navbar.Collapse>
         </Navbar>
     )

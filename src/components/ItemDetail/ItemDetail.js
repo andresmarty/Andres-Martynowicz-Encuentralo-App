@@ -15,7 +15,7 @@ const ItemDetail = ({ product }) => {
                             <h3>{product.price}</h3>
                         </div>
                         <div className="container-fluid contador">
-                        <ItemCount stocks={product.stock}/>
+                        <ItemCount stocks={product.stock} id={product.id}/>
                         </div>
                     </div>
                 </div>

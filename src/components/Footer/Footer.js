@@ -7,7 +7,7 @@ function footer() {
             <div className="container">
                 <div className="row">
                     <p className="col-sm">
-                    &copy;{new Date().getFullYear()} ENCUENTRALO | Todos los derechos reservados |
+                    &copy;{new Date().getFullYear()} Encuéntralo | Todos los derechos reservados |
                     Terminos de Servicio | Privacidad
                     </p>
                 </div>
