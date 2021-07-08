@@ -2,14 +2,15 @@ import React from 'react';
 import img from './car.png'
 import './CartWidget.css';
 import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 function CartWidget() {
     return (
         <div>
             <Nav.Item>
-                <Nav.Link href="/home" className="mr-auto">
+                <Link to="/cart" className="mr-auto">
                 <img src={img} alt="Carrito de Compras" className="carrito"></img>
-                </Nav.Link>
+                </Link>
                 
             </Nav.Item>
         </div>

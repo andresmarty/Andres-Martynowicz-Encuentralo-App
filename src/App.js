@@ -3,31 +3,30 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import ItemDetailContainer from './Views/ItemDetailContainer/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
+import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
-import { ItemsProvider } from '../src/context/ItemContext';
 import { CartProvider } from '../src/context/CartContext';
+import Cart from './components/cart/Cart'
 
 function App(){
       return(
-      <div className="page-container">
-      <div className="content-wrap">
-      <Router>
-        <CartProvider>
-          <ItemsProvider>
-          <NavBar />
-          <Switch>
-              <Route path='/' exact component={ItemListContainer} />
-              <Route path='/category/:categoryId' exact component={ItemListContainer} />
-              <Route path='/detail/:id' exact component={ItemDetailContainer} />
-          </Switch>
-          </ItemsProvider>
-          </CartProvider>
-      </Router>
-      </div>
-      <Footer />
-      </div>
+      <CartProvider>
+        <div className="page-container">
+          <div className="content-wrap">
+            <Router>
+                <NavBar />
+                <Switch>
+                    <Route exact path='/' component={ItemListContainer} />
+                    <Route path='/category/:categoryName' component={ItemListContainer} />
+                    <Route path='/detail/:id' component={ItemDetailContainer} />
+                    <Route path="/cart" component={Cart} />
+                </Switch>
+            </Router>
+        </div>
+          <Footer />
+        </div>
+      </CartProvider>
     );
   };
 

@@ -11,7 +11,7 @@ function item({ data }) {
                 </div>
                 <div className="container-fluid justify-content-center">
                 <Card.Body>
-                    <div className="container justify-content-center texto" key={data.id}>
+                    <div className="container justify-content-center texto">
                         
                             <Card.Text>{data.name}</Card.Text>
 

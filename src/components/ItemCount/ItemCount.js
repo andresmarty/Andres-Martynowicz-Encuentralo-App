@@ -1,18 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import './ItemCount.css';
-import { CartContext } from "../../context/CartContext";
+import { useCartContext } from "../../context/CartContext";
 
 function ItemCount({ product }) {
 
-    const [cart, setCart] = useContext(CartContext);
+    const { addToCart } = useCartContext()
 
-    const addToCart = () => {
-        const Item = {item: product, quantity: number}
-        setCart(currentCart => [...currentCart, Item]);
-    }
-
-    console.log(product.stock)
+    const onAdd = quantity => addToCart(product, quantity);
 
     const [number, setNumber] = useState(1);
 
@@ -28,9 +23,6 @@ function ItemCount({ product }) {
         }
     }
 
-    console.log(cart)
-
-
     return (
         <div className="container-fluid justify-content-center w-100 item1">
             <div className="container-fluid counter">
@@ -39,7 +31,7 @@ function ItemCount({ product }) {
                 <Button className="incrementar" variant="dark" onClick={handleIncrement}>+</Button>
             </div>
             <div className="container-fluid justify-content-center d-flex">
-                <Button className="button" variant="dark" onClick={ addToCart }>Añadir al carrito</Button>
+                <Button className="button" variant="dark" onClick={() => onAdd(number)}>Añadir al carrito</Button>
             </div>
         </div>
     );

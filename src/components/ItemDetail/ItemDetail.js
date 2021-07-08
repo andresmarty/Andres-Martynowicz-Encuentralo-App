@@ -15,7 +15,7 @@ const ItemDetail = ({ product }) => {
                             <h3>{product.price}</h3>
                         </div>
                         <div className="container-fluid contador">
-                        <ItemCount product={ product }/>
+                        {product.stock > 0 && <ItemCount product={ product }/>}
                         </div>
                     </div>
                 </div>

@@ -1,19 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './NavBar.css'
-import { ItemsContext } from '../../context/ItemContext'
 import { CartContext } from '../../context/CartContext'
+import axios from 'axios';
+
 
 function NavBar() {
 
-        const [cart, setCart] = useContext(CartContext)
+        const history = useHistory();
+
+        const handleChange = (e) => {
+        if (e.target.value)
+            history.push(`/category/${e.target.value}`)
+        }
+
+        const [item, setItem] = useState([])
+
+        useEffect(() => {
+            (async () => {
+                const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}`);
+                setItem(data);
+            })();
+        }, []);
+
+        const { cart } = useContext(CartContext)
+        
         const quantity = Object.keys(cart).length
-
-        console.log(quantity)
-
-        const [item, setItem] = useContext(ItemsContext)
 
         const newArr = [...item.reduce((map, obj) => map.set(obj.categoryId, obj), new Map()).values()];
 
@@ -24,17 +38,18 @@ function NavBar() {
             </Link>
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+            <NavDropdown title="Categorias" id="basic-nav-dropdown" onChange={handleChange}>
             {newArr.map((item) => {
                 return(
-                        
-                            <NavDropdown.Item key={item.id} id={item.category}><Link style={{ textDecoration: 'none' }} className="link" to={`/category/${item.categoryId}`}>{item.categoryName}</Link></NavDropdown.Item>
-                        
+                        <NavDropdown.Item key={item.id} id={item.category}>
+                            <Link style={{ textDecoration: 'none' }} className="link" to={`/category/${item.categoryId}`}>{item.categoryName}
+                            </Link>
+                        </NavDropdown.Item>
                 )
             })}
             </NavDropdown>
             </Nav>
-                <span>Items In cart: { quantity }</span>
+                <span className="itemsInCart">{ quantity }</span>
                 <CartWidget />
             </Navbar.Collapse>
         </Navbar>

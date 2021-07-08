@@ -2,29 +2,29 @@ import React, { useEffect, useState } from 'react'
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import './ItemDetailContainer.css'
 import ItemDescription from '../../components/ItemDescription/ItemDescription'
-// import axios from 'axios'
+import { useParams } from 'react-router';
+import axios from 'axios'
 
-const ItemDetailContainer = ({ match }) => {
+const ItemDetailContainer = () => {
 
-    const itemId = match.params.id;
+    const { id } = useParams();
 
-    const [product, setProduct] = useState([])
+    const [ item, setItem ] = useState([]);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BASE_URL}`)
-            .then(res => res.json())
-            .then((res) => setProduct(res))
-    },[itemId]);
+        (async () => {
+            const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}`);
+            const foundItem = data.find(it => it.id === id);
+            console.log(foundItem)
+            setItem(currentCart => [...currentCart, foundItem]);
+        })();
+    }, [id]);
 
-    const resultadoProducto = product.filter(elemento => {
-        return elemento.id === itemId
-    });
-
-    console.log(resultadoProducto)
+    console.log(item, "aaaaassss")
 
     return (
         <div className="container-fluid h-100"> 
-                {resultadoProducto.map((dataProducto) => {
+                {item.map((dataProducto) => {
                     return(
                         <>
                         <div className="row superior w-100 d-flex" key={ dataProducto.id }>
