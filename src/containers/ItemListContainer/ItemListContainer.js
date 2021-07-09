@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useCartContext } from '../../context/CartContext'
 
 function ItemListContainer() {
 
@@ -10,14 +10,15 @@ function ItemListContainer() {
 
     const [items, setItems] = useState([]);
 
+    const { database } = useCartContext();
+
     useEffect(() => {
         (async () => {
-            const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}`);
-            if(!categoryName) return setItems(data);
-            const catItems = data.filter(item => item.categoryId === categoryName);
+            if(!categoryName) return setItems(database);
+            const catItems = database.filter(item => item.categoryId === categoryName);
             setItems(catItems);
         })();
-    }, [categoryName]);
+    }, [categoryName, database]);
 
     return(
         <div className="container-fluid h-100 d-flex justify-content-center">

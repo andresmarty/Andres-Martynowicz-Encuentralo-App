@@ -6,9 +6,11 @@ import { useCartContext } from "../../context/CartContext";
 function ItemCount({ product }) {
 
     const { addToCart } = useCartContext()
+    const { setDatabase } = useCartContext()
 
-    const onAdd = quantity => addToCart(product, quantity);
-
+    const onAdd = (quantity) => {
+        addToCart(product, quantity);
+    }
     const [number, setNumber] = useState(1);
 
     const handleIncrement = () => {

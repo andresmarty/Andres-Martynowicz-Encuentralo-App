@@ -1,30 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import './ItemDetailContainer.css'
 import ItemDescription from '../../components/ItemDescription/ItemDescription'
 import { useParams } from 'react-router';
-import axios from 'axios'
+import { useCartContext } from '../../context/CartContext'
 
 const ItemDetailContainer = () => {
 
     const { id } = useParams();
 
+    const { database } = useCartContext()
+
     const [ item, setItem ] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}`);
-            const foundItem = data.find(it => it.id === id);
+            const foundItem = database.find(it => it.id === id);
             console.log(foundItem)
             setItem(currentCart => [...currentCart, foundItem]);
         })();
-    }, [id]);
-
-    console.log(item, "aaaaassss")
+    }, [id, database]);
 
     return (
         <div className="container-fluid h-100"> 
-                {item.map((dataProducto) => {
+                {database.map((dataProducto) => {
                     return(
                         <>
                         <div className="row superior w-100 d-flex" key={ dataProducto.id }>
