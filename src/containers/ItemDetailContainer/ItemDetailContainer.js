@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className="container-fluid h-100"> 
-                {database.map((dataProducto) => {
+                {item.map((dataProducto) => {
                     return(
                         <>
                         <div className="row superior w-100 d-flex" key={ dataProducto.id }>

@@ -27,7 +27,7 @@ function NavBar() {
 
         const { cart } = useContext(CartContext)
         
-        const quantity = Object.keys(cart).length
+        // const quantity = Object.keys(cart).length
 
         const newArr = [...item.reduce((map, obj) => map.set(obj.categoryId, obj), new Map()).values()];
 
@@ -49,8 +49,10 @@ function NavBar() {
             })}
             </NavDropdown>
             </Nav>
-                <span className="itemsInCart">{ quantity }</span>
-                <CartWidget />
+                {cart.length > 0 ? 
+                // <span className="itemsInCart"> {cart.length} </span>
+                <CartWidget quantityItems={cart} />: <p></p>}
+
             </Navbar.Collapse>
         </Navbar>
     )
