@@ -8,14 +8,18 @@ function ItemListContainer() {
 
     const { categoryName }  = useParams();
 
+    console.log(categoryName, "CATEGORIAAA")
+
     const [items, setItems] = useState([]);
 
     const { database } = useCartContext();
 
+    // console.log(database, 'ITEMSSS')
+
     useEffect(() => {
         (async () => {
             if(!categoryName) return setItems(database);
-            const catItems = database.filter(item => item.categoryId === categoryName);
+            const catItems = database.filter(item => item.categoryName === categoryName);
             setItems(catItems);
         })();
     }, [categoryName, database]);

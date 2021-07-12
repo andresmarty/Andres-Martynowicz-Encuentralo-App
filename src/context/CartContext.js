@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios'
-
+//import axios from 'axios'
+import { db } from '../firebase';
 
 export const CartContext = createContext();
 
@@ -10,13 +10,20 @@ export const CartProvider = (props) => {
 
 const [database, setDatabase] = useState([])
 
+    const getProducts = () => {
+    const docs = [];
+        db.collection('productos').onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(doc)
+                docs.push({ ...doc.data(), id: doc.id });
+            });
+            setDatabase(docs);
+            });
+        };
+
     useEffect(() => {
-        (async () => {
-          const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}`);
-          console.log(data, "DATA")
-          setDatabase(data);
-        })();
-      }, []);
+		getProducts();
+	}, []);
 
     const [cart , setCart] = useState([])
     
@@ -33,7 +40,6 @@ const [database, setDatabase] = useState([])
                     return cartElement;
                 }
             })
-            // setDatabase(pre => [...pre, {...item, item.stock - quantity}])
             setCart(newCart)
         } else {
             setCart(prev => [...prev, { ...item, quantity}]) 

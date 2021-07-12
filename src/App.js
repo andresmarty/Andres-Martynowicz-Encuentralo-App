@@ -8,6 +8,8 @@ import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import Footer from './components/Footer/Footer';
 import { CartProvider } from '../src/context/CartContext';
 import Cart from './components/cart/Cart'
+import {db} from './firebase'
+
 
 function App(){
       return(
@@ -18,7 +20,7 @@ function App(){
                 <NavBar />
                 <Switch>
                     <Route exact path='/' component={ItemListContainer} />
-                    <Route path='/category/:categoryName' component={ItemListContainer} />
+                    <Route path="/category/:categoryName" component={ItemListContainer} />
                     <Route path='/detail/:id' component={ItemDetailContainer} />
                     <Route path="/cart" component={Cart} />
                 </Switch>

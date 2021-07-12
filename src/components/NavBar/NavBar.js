@@ -41,8 +41,8 @@ function NavBar() {
             <NavDropdown title="Categorias" id="basic-nav-dropdown" onChange={handleChange}>
             {newArr.map((item) => {
                 return(
-                        <NavDropdown.Item key={item.id} id={item.category}>
-                            <Link style={{ textDecoration: 'none' }} className="link" to={`/category/${item.categoryId}`}>{item.categoryName}
+                        <NavDropdown.Item key={item.id} id={item.categoryName}>
+                            <Link style={{ textDecoration: 'none' }} className="link" to={`/category/${item.categoryName}`}>{item.categoryName}
                             </Link>
                         </NavDropdown.Item>
                 )

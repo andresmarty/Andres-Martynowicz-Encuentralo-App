@@ -16,7 +16,7 @@ const Cart = () => {
             <div className="container">
                 <div className="row listContainer">
                     <div className="col-3">
-                        <img src={item.pictureURL} alt="producto" className="imagenList"></img>
+                        <img src={item.img} alt="producto" className="imagenList"></img>
                     </div>
                     <div className="col-3">
                         <p className="listDescription">{item.name}</p>
@@ -33,7 +33,7 @@ const Cart = () => {
         ))}
         </div>
         <div>
-            <Button className="vaciarButton" variant="dark" onClick={clearCart}>VACIAR CARRITO</Button>
+            <Button className="vaciarButton" variant="dark" onClick={clearCart}>Vaciar Carro de Compras</Button>
         </div>
     </>
   )

@@ -7,7 +7,7 @@ function item({ data }) {
         <>
             <Card key={data.id} className="container-fluid card">
                 <div className="container-fluid justify-content-center">
-                    <img className="imagen" src={data.pictureURL} alt="producto"></img>
+                    <img className="imagen" src={data.img} alt="producto"></img>
                 </div>
                 <div className="container-fluid justify-content-center">
                 <Card.Body>
