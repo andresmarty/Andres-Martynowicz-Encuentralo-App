@@ -12,19 +12,6 @@ const ItemDetailContainer = () => {
 
     const { id } = useParams();
 
-	// const getProducto = () => {
-    //     const databaseProducto = [];
-	// 	db.collection('productos').onSnapshot((querySnapshot) => {
-	// 		querySnapshot.forEach((doc) => {
-	// 			databaseProducto.push({ ...doc.data(), id: doc.id });
-	// 			let filteredItem = databaseProducto.filter(
-	// 				(itemFiltered) => itemFiltered.id === id
-	// 			);
-	// 			setItem(filteredItem);
-	// 		});
-	// 	});
-	// };
-
     useEffect(() => {
 		(async () => {
             const response = await db.doc(id).get();
@@ -35,14 +22,6 @@ const ItemDetailContainer = () => {
 	},[id]);
 
     console.log(item, "ITEM")
-
-    // useEffect(() => {
-    //     (async () => {
-    //         const foundItem = database.find(it => it.id === id);
-    //         console.log(foundItem)
-    //         setItem(currentCart => [...currentCart, foundItem]);
-    //     })();
-    // }, [id, database]);
 
     return (
         <div className="container-fluid h-100"> 

@@ -1,16 +1,23 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext'
 import './Cart.css'
 import { Button  } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
   const { cart, clearCart, removeCart } = useCartContext();
 
-  if (!cart.length) return <Redirect to='/' />;
+  const itemInCart = Object.keys(cart).length
+  console.log(itemInCart)
+
+  const precioTotal = cart.reduce((acc, item) => {
+    return acc + item.price * item.quantity
+  }, 0)
+
+  console.log(cart, "CART")
 
   return (
-      <>
+        <>
         <div className="container contenedorCart">
         {cart.map((item) => (
             <div className="container">
@@ -29,12 +36,26 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
-            
-        ))}
+        ))};
         </div>
-        <div>
-            <Button className="vaciarButton" variant="dark" onClick={clearCart}>Vaciar Carro de Compras</Button>
-        </div>
+        
+            <div>
+            {itemInCart  ?
+                <div>
+                <Button className="vaciarButton" variant="dark" onClick={clearCart}>Vaciar Carro de Compras</Button>
+                <h1> Precio Total ${precioTotal} </h1>
+                </div>
+
+                : 
+                <div>
+                <h3 className="align-items-center justify-content-center">No hay Items en el Carro </h3>
+                <Link to="/">
+                    <Button className="vaciarButton" variant="dark" onClick={clearCart}>Segui Buscando!</Button>
+                </Link>
+                </div>
+            }
+            </div> 
+
     </>
   )
 }
