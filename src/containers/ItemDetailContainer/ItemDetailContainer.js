@@ -3,23 +3,46 @@ import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import './ItemDetailContainer.css'
 import ItemDescription from '../../components/ItemDescription/ItemDescription'
 import { useParams } from 'react-router';
-import { useCartContext } from '../../context/CartContext'
+// import { useCartContext } from '../../context/CartContext'
+import { db } from '../../firebase';
 
 const ItemDetailContainer = () => {
 
-    const { id } = useParams();
-
-    const { database } = useCartContext()
-
     const [ item, setItem ] = useState([]);
 
+    const { id } = useParams();
+
+	// const getProducto = () => {
+    //     const databaseProducto = [];
+	// 	db.collection('productos').onSnapshot((querySnapshot) => {
+	// 		querySnapshot.forEach((doc) => {
+	// 			databaseProducto.push({ ...doc.data(), id: doc.id });
+	// 			let filteredItem = databaseProducto.filter(
+	// 				(itemFiltered) => itemFiltered.id === id
+	// 			);
+	// 			setItem(filteredItem);
+	// 		});
+	// 	});
+	// };
+
     useEffect(() => {
-        (async () => {
-            const foundItem = database.find(it => it.id === id);
-            console.log(foundItem)
-            setItem(currentCart => [...currentCart, foundItem]);
+		(async () => {
+            const response = await db.doc(id).get();
+            const databaseProducto = []
+            databaseProducto.push({id: response.id, ...response.data()})
+            setItem(databaseProducto)
         })();
-    }, [id, database]);
+	},[id]);
+
+    console.log(item, "ITEM")
+
+    // useEffect(() => {
+    //     (async () => {
+    //         const foundItem = database.find(it => it.id === id);
+    //         console.log(foundItem)
+    //         setItem(currentCart => [...currentCart, foundItem]);
+    //     })();
+    // }, [id, database]);
 
     return (
         <div className="container-fluid h-100"> 

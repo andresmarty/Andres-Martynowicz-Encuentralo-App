@@ -4,7 +4,7 @@ import './ItemCount.css';
 import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom"
 
-function ItemCount({ product }) {
+function ItemCount({ product, stock }) {
 
     const [ addedProduct, setAddedProduct] = useState(true)
 
@@ -16,7 +16,7 @@ function ItemCount({ product }) {
     const [number, setNumber] = useState(1);
 
     const handleIncrement = () => {
-        if (number < product.stock){
+        if (number < stock){
             setNumber(number + 1)
         }
     }
@@ -39,8 +39,9 @@ function ItemCount({ product }) {
                 <Button className="incrementar" variant="dark" onClick={handleIncrement}>+</Button>
             </div>
             <div className="container-fluid justify-content-center d-flex">
-                {addedProduct ? 
-                <Button className="button" variant="dark" onClick={() => {onAdd(number); handleOnClick()}}>Añadir al carrito</Button> : 
+                {
+                addedProduct ? 
+                <Button className="button" variant="dark" onClick={() => {onAdd(number); handleOnClick()}}>Añadir al carrito</Button> :
                 <Link to="/cart" className="button">
                 <Button className="button" variant="dark" >Terminar Compra</Button>
                 </Link>

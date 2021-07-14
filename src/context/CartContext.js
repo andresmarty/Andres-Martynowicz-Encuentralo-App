@@ -10,22 +10,20 @@ export const CartProvider = (props) => {
 
 const [database, setDatabase] = useState([])
 
-    const getProducts = () => {
-    const docs = [];
-        db.collection('productos').onSnapshot((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(doc)
-                docs.push({ ...doc.data(), id: doc.id });
-            });
-            setDatabase(docs);
-            });
-        };
-
     useEffect(() => {
-		getProducts();
+        (async () => {
+            const response = await db.get();
+            setDatabase(response.docs.map(it => ({id:it.id, ...it.data()})))
+        })
+		();
 	}, []);
 
     const [cart , setCart] = useState([])
+
+    const realStock = (product) => {
+        const foundItem = cart.find(e => e.id === product.id)
+        return foundItem ? product.stock - foundItem.quantity : product.stock;
+    }
     
     const isInCart = id => cart.some(item => item.id === id)
 
@@ -55,18 +53,8 @@ const [database, setDatabase] = useState([])
     }
 
     return (
-        <CartContext.Provider value={{ cart, setCart, clearCart, addToCart, database, removeCart, setDatabase }}>
+        <CartContext.Provider value={{ cart, setCart, clearCart, addToCart, database, removeCart, setDatabase, realStock }}>
             {props.children}
         </CartContext.Provider>
             )
 }
-
-
-// export const CartProvider = (props) => {
-//     const [state, dispatch] = useReducer(reducer, initialState);
-
-//     return (
-//         <CartContext.Provider value={{ state, dispatch }}>
-//             {props.children}
-//         </CartContext.Provider>
-//         )}

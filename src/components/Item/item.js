@@ -15,7 +15,7 @@ function item({ data }) {
                         
                             <Card.Text>{data.name}</Card.Text>
 
-                        <Card.Text>Precio: {data.price}</Card.Text>
+                        <Card.Text>Precio: ${data.price}</Card.Text>
                     </div>
                     <div className="container-fluid contador">
                     {/* <ItemCount stocks={data.stock}/> */}

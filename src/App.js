@@ -8,8 +8,6 @@ import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import Footer from './components/Footer/Footer';
 import { CartProvider } from '../src/context/CartContext';
 import Cart from './components/cart/Cart'
-import {db} from './firebase'
-
 
 function App(){
       return(

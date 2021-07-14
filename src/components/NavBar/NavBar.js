@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget'
 import { Link, useHistory } from 'react-router-dom'
 import './NavBar.css'
-import { CartContext } from '../../context/CartContext'
-import axios from 'axios';
-
+import { useCartContext } from '../../context/CartContext'
 
 function NavBar() {
 
@@ -16,20 +14,18 @@ function NavBar() {
             history.push(`/category/${e.target.value}`)
         }
 
+        const { database, cart } = useCartContext();
+
         const [item, setItem] = useState([])
 
         useEffect(() => {
             (async () => {
-                const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}`);
+                const data  = database;
                 setItem(data);
             })();
-        }, []);
+        }, [database]);
 
-        const { cart } = useContext(CartContext)
-        
-        // const quantity = Object.keys(cart).length
-
-        const newArr = [...item.reduce((map, obj) => map.set(obj.categoryId, obj), new Map()).values()];
+        const newArr = [...item.reduce((map, obj) => map.set(obj.categoryName, obj), new Map()).values()];
 
         return (
         <Navbar className="navbar-custom" variant="dark">
@@ -52,7 +48,6 @@ function NavBar() {
                 {cart.length > 0 ? 
                 // <span className="itemsInCart"> {cart.length} </span>
                 <CartWidget quantityItems={cart} />: <p></p>}
-
             </Navbar.Collapse>
         </Navbar>
     )
