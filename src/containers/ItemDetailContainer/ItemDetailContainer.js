@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
     console.log(item, "ITEM")
 
     return (
-        <div className="container-fluid h-100"> 
+        <div className="container-fluid h-100 w-100 itemDetailContainer"> 
                 {item.map((dataProducto) => {
                     return(
                         <>
@@ -34,10 +34,10 @@ const ItemDetailContainer = () => {
                                     <img className="imagenDetail" src={ dataProducto.img } alt="producto"></img>
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-sm-4 justify-content-center d-flex align-intems-center"><ItemDetail product={ dataProducto }/>
+                            <div className="col-lg-3 col-sm-3 justify-content-center d-flex align-intems-center"><ItemDetail product={ dataProducto }/>
                             </div>
                         </div>
-                        <div className="row inferior d-flex">
+                        <div className="container-fluid inferior d-flex">
                             <ItemDescription product={dataProducto} />
                         </div>
                         </>

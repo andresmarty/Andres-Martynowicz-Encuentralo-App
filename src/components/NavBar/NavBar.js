@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Container, Form, FormControl, Button } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget'
 import { Link, useHistory } from 'react-router-dom'
 import './NavBar.css'
@@ -28,29 +28,50 @@ function NavBar() {
         const newArr = [...item.reduce((map, obj) => map.set(obj.categoryName, obj), new Map()).values()];
 
         return (
-        <Navbar className="navbar-custom" variant="dark">
-            <Link to={`/`}>
-                <Navbar.Brand href="#home">Encuéntralo</Navbar.Brand>
-            </Link>
-            <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-            <NavDropdown title="Categorias" id="basic-nav-dropdown" onChange={handleChange}>
-            {newArr.map((item) => {
-                return(
-                        <NavDropdown.Item key={item.id} id={item.categoryName}>
-                            <Link style={{ textDecoration: 'none' }} className="link" to={`/category/${item.categoryName}`}>{item.categoryName}
-                            </Link>
-                        </NavDropdown.Item>
-                )
-            })}
-            </NavDropdown>
-            </Nav>
-                {cart.length > 0 ? 
-                // <span className="itemsInCart"> {cart.length} </span>
-                <CartWidget quantityItems={cart} />: <p></p>}
-            </Navbar.Collapse>
+            
+            <Navbar collapseOnSelect expand="lg" variant="dark" className="navbar-custom">
+            <Container>
+                <Link to={`/`}>
+                <Navbar.Brand href="#home">Encuentralo</Navbar.Brand>
+                </Link>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav>
+                    <NavDropdown menuVariant="dark" title="Categorias" onChange={handleChange} id="collasible-nav-dropdown">
+                        {newArr.map((item) => {
+                            return(
+                                    <NavDropdown.Item key={item.id} id={item.categoryName}>
+                                        <Link style={{ textDecoration: 'none' }} className="link" to={`/category/${item.categoryName}`}>{item.categoryName}
+                                        </Link>
+                                    </NavDropdown.Item>
+                            )
+                        })}
+                    </NavDropdown>
+                    </Nav>
+                    <Form className="d-flex submitInput">
+                        <FormControl
+                            type="search"
+                            placeholder="Search"
+                            className="mr-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="light">Search</Button>
+                        </Form>
+                    <Nav className="ml-auto justify-content-end">
+                        {cart.length > 0 ? 
+                        // <span className="itemsInCart"> {cart.length} </span>
+                        <CartWidget quantityItems={ cart } />:
+                        
+                        <CartWidget quantityItems={ cart } />
+                        }
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
         </Navbar>
     )
 }
 
 export default NavBar;
+
+
+

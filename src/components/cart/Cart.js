@@ -8,13 +8,10 @@ const Cart = () => {
   const { cart, clearCart, removeCart } = useCartContext();
 
   const itemInCart = Object.keys(cart).length
-  console.log(itemInCart)
 
   const precioTotal = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity
   }, 0)
-
-  console.log(cart, "CART")
 
   return (
         <>
@@ -44,6 +41,9 @@ const Cart = () => {
                 <div>
                 <Button className="vaciarButton" variant="dark" onClick={clearCart}>Vaciar Carro de Compras</Button>
                 <h1> Precio Total ${precioTotal} </h1>
+                <Link to={`/checkout`}>
+                <Button variant="dark">Termina la compra!</Button>
+                </Link>
                 </div>
 
                 : 

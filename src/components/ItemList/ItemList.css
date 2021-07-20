@@ -2,7 +2,6 @@
     margin: 15px;
     min-width: 40vh;
     justify-content: center;
-    padding: 0;
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -18,3 +17,4 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+

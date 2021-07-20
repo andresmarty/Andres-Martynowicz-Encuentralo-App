@@ -14,7 +14,7 @@ const [database, setDatabase] = useState([])
         (async () => {
             const response = await db.get();
             setDatabase(response.docs.map(it => ({id:it.id, ...it.data()})))
-        })
+            })
 		();
 	}, []);
 
@@ -49,7 +49,6 @@ const [database, setDatabase] = useState([])
 
     const removeCart = (id) => {
         const newList = cart.filter((item) => item.id !== id);
- 
         setCart(newList);
     }
 

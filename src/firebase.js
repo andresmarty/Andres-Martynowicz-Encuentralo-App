@@ -15,6 +15,9 @@ const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : fir
 
 export const db = firebase.firestore(app).collection("productos");
 
-  // const fb = firebase.initializeApp(firebaseConfig);
+export const banner = firebase.firestore(app).collection("banner")
 
-  // export const db = fb.firestore()
+export const orders = firebase.firestore(app).collection("orders")
+
+// const fb = firebase.initizalieApp(firebaseConfig);
+// export const collection = fb.firestore();

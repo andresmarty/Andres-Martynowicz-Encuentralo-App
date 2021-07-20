@@ -12,10 +12,10 @@ function CartWidget({ quantityItems }) {
 // console.log(totalAges);
 
     return (
-        <div>
+        <div className="itemsInCart">
             <Nav.Item>
                 <Link to="/cart" className="mr-auto">
-                <span className="itemsInCart"> { stock } </span>
+                <span> { stock } </span>
                 <img src={img} alt="Carrito de Compras" className="carrito"></img>
                 </Link>
             </Nav.Item>

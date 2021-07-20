@@ -1,3 +1,8 @@
+.itemDetailContainer {
+    padding: 0;
+    margin: 0;
+}
+
 .containerImagen {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     margin: 10px; 
@@ -19,11 +24,14 @@
 }
 
 .superior {
-    height: 75vh;
+    height: 65vh;
     align-items: center;
 }
 
 .inferior {
-    height: 10vh;
+    height: 20vh;
+    width: 100%;
+    padding-left: 150px;
+    background-color: rgb(255, 255, 255);
 }
 

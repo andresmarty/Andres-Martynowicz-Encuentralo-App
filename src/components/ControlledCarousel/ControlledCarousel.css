@@ -1,0 +1,25 @@
+.carousel {
+    max-width: 100%;
+    max-height: 25vh;
+}
+
+.containerBanner {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    margin: auto;
+}
+
+/* .carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+} */
+
+.text-left {
+    color: grey;
+}
+
+.carousel .carousel-indicators li {  background-color: rgb(255, 255, 255); }
+.carousel .carousel-indicators li.active { background-color: rgb(255, 255, 255); }
+
+
