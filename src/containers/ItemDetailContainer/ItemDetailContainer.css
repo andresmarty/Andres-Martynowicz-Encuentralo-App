@@ -1,16 +1,16 @@
 .itemDetailContainer {
-    padding: 0;
-    margin: 0;
+    display: inline-block;
+    color: rgb(255, 255, 255);
 }
 
 .containerImagen {
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    box-shadow: rgba(255, 255, 255, 0.856) 1.95px 1.95px 2.6px;
     margin: 10px; 
     justify-content: center;
     align-items: center;
     background-color: white;
-    height: 400px;
-    width: 65%;
+    min-height: 40vh;
+    width: 50%;
 }
 
 .imagenDetail {
@@ -29,9 +29,14 @@
 }
 
 .inferior {
+    margin: 10px;
     height: 20vh;
     width: 100%;
-    padding-left: 150px;
-    background-color: rgb(255, 255, 255);
+    background-color: #0F1416;
+    justify-content: center;
 }
 
+.text-left {
+    justify-content: center;
+    align-items: center;
+}

@@ -40,7 +40,7 @@ const Cart = () => {
             {itemInCart  ?
                 <div>
                 <Button className="vaciarButton" variant="dark" onClick={clearCart}>Vaciar Carro de Compras</Button>
-                <h1> Precio Total ${precioTotal} </h1>
+                <h1 className="text"> Precio Total ${precioTotal} </h1>
                 <Link to={`/checkout`}>
                 <Button variant="dark">Termina la compra!</Button>
                 </Link>
@@ -48,7 +48,7 @@ const Cart = () => {
 
                 : 
                 <div>
-                <h3 className="align-items-center justify-content-center">No hay Items en el Carro </h3>
+                <h3 className="text align-items-center justify-content-center">No hay Items en el Carro </h3>
                 <Link to="/">
                     <Button className="vaciarButton" variant="dark" onClick={clearCart}>Segui Buscando!</Button>
                 </Link>

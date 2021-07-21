@@ -21,7 +21,7 @@ const CategoryView = () => {
     return (
         <div>
             <div className="row productList h-25 w-100 justify-content-center">
-                <h3>{categoryName}</h3>
+                <h3 className="text">{categoryName}</h3>
             </div>
             <ItemListContainer dataCategory={items} />
         </div>

@@ -13,7 +13,7 @@ function item({ data }) {
                 <Card.Body>
                     <div className="container justify-content-center texto">
                         
-                            <Card.Text>{data.name}</Card.Text>
+                            <h4>{data.name}</h4>
 
                         <Card.Text>Precio: ${data.price}</Card.Text>
                     </div>

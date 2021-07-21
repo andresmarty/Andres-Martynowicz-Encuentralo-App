@@ -12,9 +12,9 @@ function CartWidget({ quantityItems }) {
 // console.log(totalAges);
 
     return (
-        <div className="itemsInCart">
+        <div className="itemsInCart hvr-underline-from-right">
             <Nav.Item>
-                <Link to="/cart" className="mr-auto">
+                <Link to="/cart" className="mr-auto" style={{ textDecoration: 'none' }}>
                 <span> { stock } </span>
                 <img src={img} alt="Carrito de Compras" className="carrito"></img>
                 </Link>

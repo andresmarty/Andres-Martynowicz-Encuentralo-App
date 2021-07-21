@@ -1,7 +1,8 @@
 .navbar-custom {
     margin:0;
-    background-color: #8a01018e;
+    background-color: #0000008e;
     color: rgb(255, 255, 255);
+    border-bottom: 1px solid wheat;
 }
 
 .widget {
@@ -10,4 +11,8 @@
 
 .submitInput {
     min-width: 50%;
+}
+
+.logo {
+    font-size: xx-large;
 }

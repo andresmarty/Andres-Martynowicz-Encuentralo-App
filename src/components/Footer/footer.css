@@ -1,8 +1,8 @@
 .main-footer {
     color: white;
-    background-color: #444444;
+    background-color: #000000;
     padding-top: 1em;
-
     bottom: 0px;
     position:relative;
+    border-top: 1px solid wheat;
   }

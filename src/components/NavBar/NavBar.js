@@ -32,7 +32,7 @@ function NavBar() {
             <Navbar collapseOnSelect expand="lg" variant="dark" className="navbar-custom">
             <Container>
                 <Link to={`/`}>
-                <Navbar.Brand href="#home">Encuentralo</Navbar.Brand>
+                <Navbar.Brand className="logo" href="#home">Encuentralo</Navbar.Brand>
                 </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -51,11 +51,11 @@ function NavBar() {
                     <Form className="d-flex submitInput">
                         <FormControl
                             type="search"
-                            placeholder="Search"
+                            placeholder="Busca tu Producto"
                             className="mr-2"
                             aria-label="Search"
                         />
-                        <Button variant="light">Search</Button>
+                        <Button variant="light">Buscar</Button>
                         </Form>
                     <Nav className="ml-auto justify-content-end">
                         {cart.length > 0 ? 

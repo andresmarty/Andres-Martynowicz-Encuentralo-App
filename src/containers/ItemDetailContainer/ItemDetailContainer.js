@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import './ItemDetailContainer.css'
-import ItemDescription from '../../components/ItemDescription/ItemDescription'
 import { useParams } from 'react-router';
-// import { useCartContext } from '../../context/CartContext'
 import { db } from '../../firebase';
 
 const ItemDetailContainer = () => {
@@ -28,18 +26,26 @@ const ItemDetailContainer = () => {
                 {item.map((dataProducto) => {
                     return(
                         <>
-                        <div className="row superior w-100 d-flex" key={ dataProducto.id }>
-                            <div className="col-lg-8 col-sm-8 justify-content-center d-flex align-intems-center">
-                                <div className="container-fluid containerImagen justify-content-center align-items-center d-flex">
-                                    <img className="imagenDetail" src={ dataProducto.img } alt="producto"></img>
+                            <div className="row superior h-100 w-100" key={ dataProducto.id }>
+                                <div className="col-lg-9 justify-content-center d-flex align-intems-center">
+                                    <div className="container-fluid containerImagen justify-content-center align-items-center d-flex efectolupa">
+                                        <img className="imagenDetail" src={ dataProducto.img } alt="producto"></img>
+                                    </div>
+                                </div>
+                                <div className="col-lg-3 justify-content-center d-flex align-intems-center">
+                                    <ItemDetail product={ dataProducto }/>
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-sm-3 justify-content-center d-flex align-intems-center"><ItemDetail product={ dataProducto }/>
+                            <div className="row h-25 inferior d-flex">
+                                <div className="col-sm-9 col-lg-9 col-md-9 text-left">
+                                    <p>
+                                        { dataProducto.description }
+                                    </p>
+                                </div>
+                                <div className="col-sm-3 col-lg-3 col-md-3">
+
+                                </div>
                             </div>
-                        </div>
-                        <div className="container-fluid inferior d-flex">
-                            <ItemDescription product={dataProducto} />
-                        </div>
                         </>
                     );
                 })}
