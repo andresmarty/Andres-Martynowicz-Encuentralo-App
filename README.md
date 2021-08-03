@@ -31,11 +31,11 @@ Build and run the code optimized for production with a local server.
 
 ## Libraries Included
 
-## [Firebase](https://firebase.google.com/docs?hl=es)
+### [Firebase](https://firebase.google.com/docs?hl=es)
 
 Google Firebase is a Google-backed application development software that enables developers to develop iOS, Android and Web apps. Firebase provides tools for tracking analytics, reporting and fixing app crashes, creating marketing and product experiment.
 
-## [React Bootstrap](https://react-bootstrap.github.io/)
+### [React Bootstrap](https://react-bootstrap.github.io/)
 
 React-Bootstrap replaces the Bootstrap JavaScript. Each component has been built from scratch as a true React component, without unneeded dependencies like jQuery.
 
