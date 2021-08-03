@@ -1,6 +1,6 @@
 # Encuentralo
 
-The next project is based on the creation of an E-Commerce which Sales specific products as Synthezisers, Midi Controllers and Rithmic Machines.
+This project is based on the creation of an E-Commerce which Sales specific products as Synthezisers, Midi Controllers and Rithmic Machines.
 This App was developed using React Js.
 
 ## App Navigation
