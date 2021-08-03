@@ -14,9 +14,9 @@ const ItemDetail = ({ product }) => {
             <div key={product.id} className="itemCompra justify-content-center align-items-center d-flex">
                 <div className="container justify-content-center ">
                     <div>
-                        <div className="container justify-content-center texto">
-                            <h2>{product.name}</h2>
-                            <h3>${product.price}</h3>
+                        <div className="container-fluid justify-content-center">
+                            <h2 className="nameDetail">{product.name}</h2>
+                            <h4 className="priceDetail">${product.price}</h4>
                         </div>
                         <div className="container-fluid contador">
                         {stock > 0 ? <ItemCount product={ product } stock={stock}/>: 

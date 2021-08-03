@@ -6,16 +6,17 @@ function item({ data }) {
     return (
         <>
             <Card key={data.id} className="container-fluid card">
-                <div className="container-fluid justify-content-center">
+                <div className="container-fluid">
                     <img className="imagen" src={data.img} alt="producto"></img>
                 </div>
-                <div className="container-fluid justify-content-center">
+                <div className="container-fluid">
                 <Card.Body>
-                    <div className="container justify-content-center texto">
-                        
-                            <h4>{data.name}</h4>
-
-                        <Card.Text>Precio: ${data.price}</Card.Text>
+                    <div className="container texto">
+                        <h5 className="titulo">{data.name}</h5>
+                        <div className="precioStock">
+                            <div className="precio">${data.price}</div>
+                            <div className="stock">En stock: {data.stock}</div>
+                        </div>
                     </div>
                     <div className="container-fluid contador">
                     </div>

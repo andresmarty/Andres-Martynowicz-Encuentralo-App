@@ -8,7 +8,7 @@ function ItemListContainer({ dataCategory }) {
 
     return(
         <div className="container-fluid  h-100 d-flex justify-content-center">
-            <div className="row rowFlex w-100 justify-content-center flex-row flex-nowrap overflow-auto">
+            <div className="row rowFlex w-100 justify-content-center">
                 <ItemList dataCategory={dataCategory}/>
             </div>
         </div>

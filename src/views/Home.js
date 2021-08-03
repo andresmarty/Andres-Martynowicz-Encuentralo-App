@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import ItemListContainer from '../containers/ItemListContainer/ItemListContainer'
 import ControlledCarousel from'../components/ControlledCarousel/ControlledCarousel'
 import { db } from '../firebase';
+import './Home.css'
 
 const Home = () => {
 

@@ -13,18 +13,15 @@ const Checkout = ({ addProduct }) => {
         email2 : '',
     };
 
-    const { cart } = useCartContext()
+    const { cart, clearCart } = useCartContext()
 
     const [ cartValues, setCartValues ] = useState([])
 
-    const result = cart.map((item) => ({id:item.id, title:item.name, price:item.price}))
-
     useEffect (() => {
+        const result = cart.map((item) => ({id:item.id, title:item.name, price:item.price}))
         setCartValues(result)
-    },[])
+    },[cart])
     
-    console.log(cartValues)
-
     const [ values, setValues ] = useState(initialState)
 
     const handleOnChange = (e) => {
@@ -36,6 +33,7 @@ const Checkout = ({ addProduct }) => {
         e.preventDefault();
         addProduct(values);
         setValues({...initialState});
+        clearCart()
     }
 
     return (
@@ -85,7 +83,7 @@ const Checkout = ({ addProduct }) => {
                             name="email2"
                             value={values.email2}/>
                     </Form.Group>
-                        <Button variant="primary" type="submit">Comprar!</Button>
+                        <Button variant="dark" type="submit" onClick={clearCart}>Comprar!</Button>
                     </Form>
             </div>
         </div>

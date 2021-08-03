@@ -19,5 +19,7 @@ export const banner = firebase.firestore(app).collection("banner")
 
 export const orders = firebase.firestore(app).collection("orders")
 
+export const logos = firebase.firestore(app).collection("logos")
+
 // const fb = firebase.initizalieApp(firebaseConfig);
 // export const collection = fb.firestore();

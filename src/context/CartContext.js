@@ -25,7 +25,6 @@ const [database, setDatabase] = useState([])
         return foundItem ? product.stock - foundItem.quantity : product.stock;
     }
 
-    
     const isInCart = id => cart.some(item => item.id === id)
 
     const addToCart = (item, quantity) => {

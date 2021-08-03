@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Navbar, Nav, NavDropdown, Container, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget'
 import { Link, useHistory } from 'react-router-dom'
 import './NavBar.css'
@@ -48,7 +48,7 @@ function NavBar() {
                         })}
                     </NavDropdown>
                     </Nav>
-                    <Form className="d-flex submitInput">
+                    {/* <Form className="d-flex submitInput">
                         <FormControl
                             type="search"
                             placeholder="Busca tu Producto"
@@ -56,7 +56,7 @@ function NavBar() {
                             aria-label="Search"
                         />
                         <Button variant="light">Buscar</Button>
-                        </Form>
+                    </Form> */}
                     <Nav className="ml-auto justify-content-end">
                         {cart.length > 0 ? 
                         // <span className="itemsInCart"> {cart.length} </span>

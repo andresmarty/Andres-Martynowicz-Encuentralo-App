@@ -15,47 +15,49 @@ const Cart = () => {
 
   return (
         <>
-        <div className="container contenedorCart">
-        {cart.map((item) => (
-            <div className="container">
-                <div className="row listContainer">
-                    <div className="col-3">
-                        <img src={item.img} alt="producto" className="imagenList"></img>
-                    </div>
-                    <div className="col-3">
-                        <p className="listDescription">{item.name}</p>
-                    </div>
-                    <div className="col-3">
-                        <p className="quantity">Cantidad: {item.quantity}</p>
-                    </div>
-                    <div className="col-3">
-                    <Button className="vaciarButton" variant="dark" onClick={ () => removeCart(item.id) }>Eliminar del Carro</Button>
+            {cart.map((item) => (
+                <div className="container contenedorCart">
+                    <div className="row listContainer align-items-center justify-content-center">
+                        <div className="col-3 align-items-center">
+                            <img src={item.img} alt="producto" className="imagenList"></img>
+                        </div>
+                        <div className="col-3 align-items-center justify-content-center">
+                            <p className="listDescription">{item.name}</p>
+                        </div>
+                        <div className="col-3 align-items-center text-center justify-content-center">
+                            <p className="quantity">Cantidad Seleccionada: {item.quantity}</p>
+                        </div>
+                        <div className="col-3 align-items-center text-center justify-content-center">
+                        <Button className="vaciarButton" variant="dark" onClick={ () => removeCart(item.id) }>Eliminar del Carro</Button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        ))};
-        </div>
+            ))}
         
-            <div>
+            <div className="container">
             {itemInCart  ?
-                <div>
-                <Button className="vaciarButton" variant="dark" onClick={clearCart}>Vaciar Carro de Compras</Button>
-                <h1 className="text"> Precio Total ${precioTotal} </h1>
-                <Link to={`/checkout`}>
-                <Button variant="dark">Termina la compra!</Button>
-                </Link>
+                <div className="row justify-content-center">
+                    <div className="col-3 d-flex justify-content-start">
+                        <Button  variant="dark" onClick={clearCart}>Vaciar Carro de Compras</Button>
+                    </div>
+                    <div className="col-3 d-flex justify-content-center">
+                        <h5 className="text1"> Precio Total ${precioTotal} </h5>
+                    </div>
+                    <div className="col-3 d-flex justify-content-end">
+                        <Link to={`/checkout`}>
+                            <Button variant="dark">Termina la compra!</Button>
+                        </Link>
+                    </div>
                 </div>
-
                 : 
-                <div>
-                <h3 className="text align-items-center justify-content-center">No hay Items en el Carro </h3>
-                <Link to="/">
-                    <Button className="vaciarButton" variant="dark" onClick={clearCart}>Segui Buscando!</Button>
-                </Link>
+                <div className="containerNoItems">
+                    <h3 className="d-flex justify-content-center text">No hay Items en el Carro </h3>
+                    <Link to="/">
+                        <Button className="vaciarButton" variant="dark" onClick={clearCart}>Segui Buscando!</Button>
+                    </Link>
                 </div>
             }
             </div> 
-
     </>
   )
 }

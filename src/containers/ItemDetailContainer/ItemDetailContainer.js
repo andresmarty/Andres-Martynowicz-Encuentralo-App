@@ -27,12 +27,12 @@ const ItemDetailContainer = () => {
                     return(
                         <>
                             <div className="row superior h-100 w-100" key={ dataProducto.id }>
-                                <div className="col-lg-9 justify-content-center d-flex align-intems-center">
+                                <div className="col-lg-8 justify-content-center d-flex align-intems-center">
                                     <div className="container-fluid containerImagen justify-content-center align-items-center d-flex efectolupa">
                                         <img className="imagenDetail" src={ dataProducto.img } alt="producto"></img>
                                     </div>
                                 </div>
-                                <div className="col-lg-3 justify-content-center d-flex align-intems-center">
+                                <div className="col-lg-4 justify-content-center d-flex align-intems-center container-ItemDetail">
                                     <ItemDetail product={ dataProducto }/>
                                 </div>
                             </div>

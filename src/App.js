@@ -10,6 +10,7 @@ import Cart from './components/cart/Cart'
 import CheckoutView from './views/CheckoutView';
 import CategoryView from './views/CategoryView';
 import Home from './views/Home';
+import Logos from './components/Logos/Logos'
 
 function App(){
       return(
@@ -27,6 +28,7 @@ function App(){
                 </Switch>
             </Router>
         </div>
+          <Logos />
           <Footer />
         </div>
       </CartProvider>

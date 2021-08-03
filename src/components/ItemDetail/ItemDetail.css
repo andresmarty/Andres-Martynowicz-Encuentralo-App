@@ -1,8 +1,8 @@
 .contenedorCard {
     height: 100%;
-    min-width: 200px;
+    min-width: 100%;
     padding: 0;
-    margin: auto;
+    margin: 0;
 }
 
 .card-body {
@@ -11,4 +11,10 @@
 
 .itemCompra {
     height:400px;
+    width: 100%;
 }
+
+.nameDetail {
+    color: wheat;
+}
+
