@@ -5,7 +5,7 @@ This App was developed using React Js.
 
 ## App Navigation
 
-![](g.recordit.co/0GSThAfajj.gif)
+![](Encuentralo.gif)
 
 ### Available Scripts
 
