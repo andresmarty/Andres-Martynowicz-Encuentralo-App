@@ -5,7 +5,7 @@ This App was developed using React Js.
 
 ## App Navigation
 
-![](http://g.recordit.co/0GSThAfajj.gif)
+![](g.recordit.co/0GSThAfajj.gif)
 
 ### Available Scripts
 
